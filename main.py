@@ -1,3 +1,4 @@
+import random
 def romanToInt(s):
         sum = 0
         numeral_values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -17,4 +18,12 @@ def romanToInt(s):
             sum = sum + number
         print(sum)
 
-romanToInt('LVIII')
+def rgenNumeral():
+    with open('/home/cameron/repos/roman-numeral-decoder/random-numerals.txt') as f:
+        data = [line.strip('\n') for line in f.readlines()]
+        random_numeral = random.randint(0, len(data) - 1)
+        return data[random_numeral]
+    f.close()
+     
+
+romanToInt(rgenNumeral())
