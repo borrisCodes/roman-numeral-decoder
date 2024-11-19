@@ -1,0 +1,34 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(214, 223, 164);
+    background-color: darkslategray;
+}
+
+.row.d-flex { 
+    font-size:36px;
+    padding-bottom:100px;
+    
+}
+
+.col-6 {
+    font-size:25px;
+    height:75px;
+}
+
+.form-control {
+    width:15%;
+}
+
+input:hover {
+    background-color: grey;
+}
+
+input {
+    border: 1px solid black;
+}
+
+h1{
+    font-size:36px;
+    color:rgb(214, 223, 164);
+    font-weight:bold;
+}
