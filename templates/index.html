@@ -16,13 +16,18 @@
             <div class="row">
                 <div class="col-6 d-flex justify-content-center">Decoder</div>
                 <div class="col-6 d-flex justify-content-center">Practice</div>
-                <form action='/submit' method="post">
-                    <div class="form-group">
-                        <label for="numeralInput">Input roman numerals</label>
-                        <input type="text" name="calc" class="form-control" id="numeralInput" placeholder="Enter numerals to decode...">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                <div class="container">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="numeralInput">Input roman numerals</label>
+                            <input type="text" name="calc" class="form-control" id="numeralInput" placeholder="Enter numerals to decode...">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    {% if integer %}
+                        <p>{{integer}}</p>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
