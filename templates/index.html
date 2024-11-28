@@ -10,35 +10,50 @@
 <body>
     <div class="container-fluid">
         <div class="container">
-        <div class="row d-flex justify-content-center">Roman Numeral Decoder</div>
+            <div class="d-flex justify-content-center">
+                <h1 class="title">Roman Numeral Decoder</h1>
+            </div>
         </div>
-        <div class="container">
+        <div class="container decoder">
             <div class="row">
-                <div class="col-6 d-flex justify-content-center">Decoder</div>
-                <div class="col-6 d-flex justify-content-center">Practice</div>
-                <div class="row">
-                    <form method="POST" class="col-9" action="/decode">
-                        <div class="form-group">
+                <div class="d-flex justify-content-center">
+                    <h2 class="section-header">Decoder</h2>
+                </div>
+            <div class="row">
+                <form method="POST" action="/decode">
+                    <div class="form-group">
+                        <div class="row d-flex justify-content-between">
                             <label for="numeralInput">Input roman numerals</label>
-                            <input type="text" name="calc" class="form-control" id="numeralInput" placeholder="Enter numerals to decode...">
-                            <button type="submit" class="col-4 btn btn-primary">Submit</button>
+                            <input type="text" name="calc" class="col-sm-8 col-lg-8 ninput" id="numeralInput" placeholder="Enter numerals to decode...">
+                            <button type="submit" class="col-sm-4 col-lg-2 btn btn-primary">Submit</button>
                         </div>
-                    </form>
-                    {% if integer %}
-                        <p class="col-3">{{roman_numeral}} in integer form is {{integer}}</p>
-                    {% endif %}
-                </div>
-                <div class="row">
-                    <form method="POST" action="/practice">
-                        <div class="form-group">
-                            <p>Guess the integer form of {{ random_numeral }}</p>
-                            <input type="text" name="guess" class="form-control" id="intInput" placeholder="Enter your guess">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                        
-                    </form>
-                    <p>{{guess}}</p>
-                </div>
+                        {% if integer %}
+                            <p class="col-12">{{roman_numeral}} in integer form is {{integer}}</p>
+                        {% elif invalid %}
+                            <p class="col-12">{{invalid}}</p>
+                        {% endif %}
+                    </div>
+                </form>    
+            </div>
+        </div>
+        <div class="container practice">
+            <div class="d-flex justify-content-center">
+                <h2 class="section-header">Practice</h2>
+            </div>
+            <div class="row justify-content-center practice">
+                <form method="POST" action="/practice">
+                    <div class="form-group">                          
+                        <div class="row d-flex justify-content-between">
+                        <label for="intInput">Guess the integer form of {{ random_numeral }}</label>
+                            <input type="text" name="guess" class="col-sm-8 col-lg-8 ninput" id="intInput" placeholder="Enter your guess...">
+                            <button type="submit" class="col-sm-4 col-lg-2 btn btn-primary">Submit</button>
+                        </div>                           
+                    </div> 
+                </form>
+                <p>{{guess}}</p>
+                <form method="post" action="/regen">
+                    <button type="submit" class="btn btn-primary sequence">Generate new random sequence</button>
+                </form>
             </div>
         </div>
     </div>
