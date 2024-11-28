@@ -16,17 +16,28 @@
             <div class="row">
                 <div class="col-6 d-flex justify-content-center">Decoder</div>
                 <div class="col-6 d-flex justify-content-center">Practice</div>
-                <div class="container">
-                    <form method="post">
+                <div class="row">
+                    <form method="POST" class="col-9" action="/decode">
                         <div class="form-group">
                             <label for="numeralInput">Input roman numerals</label>
                             <input type="text" name="calc" class="form-control" id="numeralInput" placeholder="Enter numerals to decode...">
+                            <button type="submit" class="col-4 btn btn-primary">Submit</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     {% if integer %}
-                        <p>{{integer}}</p>
+                        <p class="col-3">{{roman_numeral}} in integer form is {{integer}}</p>
                     {% endif %}
+                </div>
+                <div class="row">
+                    <form method="POST" action="/practice">
+                        <div class="form-group">
+                            <p>Guess the integer form of {{ random_numeral }}</p>
+                            <input type="text" name="guess" class="form-control" id="intInput" placeholder="Enter your guess">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        
+                    </form>
+                    <p>{{guess}}</p>
                 </div>
             </div>
         </div>

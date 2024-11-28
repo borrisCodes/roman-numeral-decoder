@@ -15,17 +15,13 @@ def romanToInt(s):
                 second_number = numeral_values.get(s[next])
 
                 if number == 5 and second_number == 5 or number == 50 and second_number == 50 or number == 500 and second_number == 500:
-                    return 'invalid'
-
-                if next + 1 < len(s):
-                    third_number = numeral_values.get(s[index + 2])
-                    if number == third_number and number != second_number:
-                        return 'invalid'
+                    return 'Invalid'
                     
                 if next + 2 < len(s):
+                    third_number = numeral_values.get(s[index + 2])
                     fourth_number = numeral_values.get(s[index + 3])
                     if number == second_number and second_number == third_number and third_number == fourth_number:
-                        return 'invalid'
+                        return 'Invalid'
                     
                 if number == 1 and second_number == 5 or number == 1 and second_number == 10:
                     number = number - 2
@@ -41,8 +37,5 @@ def rgenNumeral():
     with open('/home/cameron/repos/roman-numeral-decoder/random-numerals.txt') as f:
         data = [line.strip('\n') for line in f.readlines()]
         random_numeral = random.randint(0, len(data) - 1)
-        return data[random_numeral]
+        return str(data[random_numeral])
     f.close()
-     
-
-print(romanToInt('iii'))
