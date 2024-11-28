@@ -9,16 +9,21 @@ app.secret_key = '23'
 def start():
 
     session['random_numeral'] = rgenNumeral()
-    
+
     return render_template('index.html', random_numeral=session['random_numeral'])
 
 @app.route('/decode', methods=['POST'])
 def decode():
 
     rnumeral = request.form['calc']
-    integer = romanToInt(rnumeral)
+    intform = romanToInt(rnumeral)
 
-    return render_template('index.html', integer=integer, roman_numeral=rnumeral, random_numeral=session['random_numeral'])
+    if intform != 'Invalid':
+        integer = intform
+        return render_template('index.html', integer=integer, roman_numeral=rnumeral, random_numeral=session['random_numeral'])
+    
+    invalid = 'Invalid'
+    return render_template('index.html', invalid=invalid, roman_numeral=rnumeral, random_numeral=session['random_numeral'])
 
 @app.route('/practice', methods=['POST'])
 def practice():
@@ -27,14 +32,18 @@ def practice():
     correctAnswer = romanToInt(session['random_numeral'])
 
     if intGuess == correctAnswer:
-        guess='Correct!'
+        guess='Correct, try another one!'
         session['random_numeral'] = rgenNumeral()
 
     else:
-        guess='Wrong!'
+        guess='Wrong, try again!'
 
     return render_template('index.html', guess=guess, random_numeral=session['random_numeral'])
 
+@app.route('/regen', methods=['POST'])
+def regen():
+    session['random_numeral'] = rgenNumeral()
+    return render_template('index.html', random_numeral=session['random_numeral'])
     
 if __name__ == '__main__':
     app.run()
