@@ -40,12 +40,17 @@
     font-size:30px;
 }
 
+.section-header.practice{
+    padding-left:30px;
+}
+
 .form-control {
     width:15%;
 }
 
 .container.practice{
-    margin-left:-10px;
+    margin-left:-15px;
+    margin-top:50px;
 }
 
 input:hover {
@@ -57,4 +62,24 @@ h1{
     font-size:36px;
     color:rgb(214, 223, 164);
     font-weight:bold;
+}
+
+button{
+    margin-left:30px;
+    height:43px;
+}
+
+.col-lg-2.btn{
+    margin-top:-2px;
+}
+
+@media only screen and (max-width: 576px) {
+    button{
+        margin-left:0px;
+        height:50px;
+    }
+    
+    .col-lg-2.btn{
+        margin-top:0px;
+    }
 }
