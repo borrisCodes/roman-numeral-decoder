@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request, session
 from main import romanToInt, rgenNumeral
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = '23'
+app.secret_key = os.environ.get('FLASK_SECRET_KEY')
 
 @app.route('/')
 def start():
