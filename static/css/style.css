@@ -73,6 +73,10 @@ button{
     margin-top:-2px;
 }
 
+.legend{
+    text-align: center;
+}
+
 @media only screen and (max-width: 576px) {
     button{
         margin-left:0px;
